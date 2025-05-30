@@ -20,7 +20,9 @@ bump level="patch":
 # Create a git tag for the current version.
 # Usage: just tag
 tag:
-  @git tag -a v{{VERSION}} -m "Version {{VERSION}}" && git push origin v{{VERSION}}
+  @git tag -a v{{VERSION}} -m "Version {{VERSION}}" && \
+  git push origin v{{VERSION}} && \
+  gh release create v{{VERSION}} --generate-notes
 
 # --- Help ---
 help:
